@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    build:
+      context: web
+    container_name: web
+    volumes:
+      - type: bind
+        source: web/work
+        target: /var/www/html
+    working_dir: /var/www/html
+    tty: true
+    stdin_open: true
+    ports:
+      - 8080:80
