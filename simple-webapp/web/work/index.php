@@ -1,10 +1,13 @@
 <?php
+/* データベースへの接続を行う */
 $pdo = new PDO("mysql:host=db;dbname=simpleweb", 'user1', 'password1234');
 if ($_SERVER["REQUEST_METHOD"] === "POST" && $_POST["article"]) {
+    /* もし記事が投稿されていたら、データベースに投稿を登録する */
     $prepare = $pdo->prepare("insert into post (posted_at, article) values (now(), :article)");
     $prepare->bindParam("article", $_POST["article"], PDO::PARAM_STR);
     $prepare->execute();
 }
+/* データベースに登録されている投稿の一覧を取得する */
 $query = $pdo->query("select id, posted_at, article from post order by posted_at desc");
 $rows = $query->fetchAll();
 ?>
@@ -13,7 +16,7 @@ $rows = $query->fetchAll();
 <html>
 
 <head>
-    <!-- Minified version -->
+    <!-- スタイルシートを定義する（https://simplecss.org/） -->
     <link rel="stylesheet" href="simple.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,6 +32,7 @@ $rows = $query->fetchAll();
             <p><input type="submit" name="post" value="ポストする"></p>
         </form>
         <div>
+            <!-- 先頭で取得した投稿の一覧を表示する -->
             <?php foreach ($rows as $row) { ?>
                 <hr>
                 <p><?= $row['posted_at'] ?></p>
