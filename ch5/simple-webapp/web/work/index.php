@@ -10,6 +10,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && $_POST["article"]) {
 /* データベースに登録されている投稿の一覧を取得する */
 $query = $pdo->query("select id, posted_at, article from post order by posted_at desc");
 $rows = $query->fetchAll();
+
+/* UTC（世界標準時）をJST（日本時間）に変換する関数 */
+function utc2jst($value) {
+    $date = new DateTime($value);
+    $date->setTimeZone(new DateTimeZone('Asia/Tokyo'));
+    return $date;
+}
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +42,7 @@ $rows = $query->fetchAll();
             <!-- 先頭で取得した投稿の一覧を表示する -->
             <?php foreach ($rows as $row) { ?>
                 <hr>
-                <p><?= $row['posted_at'] ?></p>
+                <p><?= utc2jst($row['posted_at'])->format('Y年m月d日 H時i分s秒') ?></p>
                 <p><?= htmlspecialchars($row['article'], ENT_QUOTES) ?></p>
             <?php } ?>
         </div>
