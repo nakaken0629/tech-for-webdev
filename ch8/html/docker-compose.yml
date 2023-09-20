@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    build:
+      context: web
+    container_name: web
+    volumes:
+      - type: bind
+        source: web/work
+        target: /usr/local/apache2/htdocs
+    working_dir: /usr/local/apache2/htdocs
+    tty: true
+    stdin_open: true
+    ports:
+      - 8080:80
