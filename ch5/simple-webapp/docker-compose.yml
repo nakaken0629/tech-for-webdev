@@ -5,9 +5,7 @@ services:
       context: web
     container_name: web
     volumes:
-      - type: bind
-        source: web/work
-        target: /var/www/html
+      - ./web/work/:/var/www/html
     working_dir: /var/www/html
     tty: true
     stdin_open: true

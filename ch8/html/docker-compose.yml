@@ -5,9 +5,7 @@ services:
       context: web
     container_name: web
     volumes:
-      - type: bind
-        source: web/work
-        target: /usr/local/apache2/htdocs
+      - ./web/work/:/usr/local/apache2/htdocs
     working_dir: /usr/local/apache2/htdocs
     tty: true
     stdin_open: true
