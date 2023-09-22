@@ -1,0 +1,11 @@
+version: '3'
+services:
+  dev:
+    build:
+      context: dev
+    container_name: dev
+    volumes:
+      - ./dev/work/:/root/src
+    working_dir: /root/src
+    tty: true
+    stdin_open: true
