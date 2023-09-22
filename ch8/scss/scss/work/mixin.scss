@@ -1,0 +1,14 @@
+@mixin mylist {
+    margin: 1em;
+    border-style: none;
+}
+
+ul {
+    @include mylist;
+    color: #333;
+}
+
+ol {
+    @include mylist;
+    color: #666;
+}

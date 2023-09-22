@@ -1,0 +1,13 @@
+version: '3'
+services:
+  scss:
+    build:
+      context: scss
+    container_name: scss
+    volumes:
+      - ./scss/work/:/root/scss
+    working_dir: /root/scss
+    tty: true
+    stdin_open: true
+    ports:
+      - 8080:80
