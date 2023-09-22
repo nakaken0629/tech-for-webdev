@@ -1,12 +1,12 @@
 version: '3'
 services:
-  scss:
+  dev:
     build:
-      context: scss
-    container_name: scss
+      context: dev
+    container_name: dev
     volumes:
-      - ./scss/work/:/root/scss
-    working_dir: /root/scss
+      - ./dev/work/:/root/src
+    working_dir: /root/src
     tty: true
     stdin_open: true
     ports:
