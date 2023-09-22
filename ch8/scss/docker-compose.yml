@@ -9,5 +9,3 @@ services:
     working_dir: /root/src
     tty: true
     stdin_open: true
-    ports:
-      - 8080:80
