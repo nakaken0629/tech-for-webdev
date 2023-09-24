@@ -5,7 +5,7 @@ services:
       context: dev
     container_name: dev
     volumes:
-      - ./dev/work/:/root/src
-    working_dir: /root/src
+      - ./dev/work/:/root/scss
+    working_dir: /root/scss
     tty: true
     stdin_open: true
