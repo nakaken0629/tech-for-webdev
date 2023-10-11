@@ -24,7 +24,7 @@ function utc2jst($value) {
 
 <head>
     <!-- スタイルシートを定義する（https://simplecss.org/） -->
-    <link rel="stylesheet" href="simple.css">
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
