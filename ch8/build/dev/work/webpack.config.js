@@ -10,7 +10,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
     },
     plugins: [new HtmlWebpackPlugin({ template: "src/index.html" })],
-    plugins: [new MiniCssExtractPlugin({ filename: '[name].css', })],
+    plugins: [new MiniCssExtractPlugin({ filename: '[name].css' })],
     module: {
         rules: [
             {
