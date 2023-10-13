@@ -1,4 +1,4 @@
 require 'date'
 
 puts "こんにちは、世界"
-puts "今日は " + String(Date.today)
+puts "今日は " + Date.today.to_s()
