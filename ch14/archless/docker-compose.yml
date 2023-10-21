@@ -1,0 +1,21 @@
+version: '3'
+services:
+  web:
+    build:
+      context: web
+    container_name: web
+    volumes:
+      - ./web/work/:/var/www/html
+    working_dir: /var/www/html
+    tty: true
+    stdin_open: true
+    ports:
+      - 8080:80
+    depends_on:
+      - db
+  db:
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    build:
+      context: db
+    container_name: db
+    working_dir: /root
