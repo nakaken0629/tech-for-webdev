@@ -1,21 +1,17 @@
 <?php
-/* 送信されたデータの取得 */
+if ($_SERVER["REQUEST_METHOD"] != "GET") {
+  header("HTTP/1.1 405 Method Not Allowed");
+  echo "{$_SERVER['REQUEST_METHOD']}メソッドは認められていません";
+  exit(0);
+}
+
+/* 送信されたパラメータの取得 */
 if (!(array_key_exists("id", $_REQUEST))) {
   header("HTTP/1.1 400 Bad Request");
   echo "idを指定してください";
   exit(0);
 }
 $id = (int) $_REQUEST["id"];
-
-/* ロジックの処理 */
-$now = time();
-$begin_time = strtotime(date("Y/m/d 10:00:00"));
-$end_time = strtotime(date("Y/m/d 20:00:00"));
-if ($now < $begin_time || $end_time < $now) {
-  header("HTTP/1.1 400 Bad Request");
-  echo "10:00から20:00以外は営業時間外です";
-  exit(0);
-}
 
 /* データベースの処理 */
 $pdo = new PDO("mysql:host=db;dbname=archless;charset=latin1", 'user1', 'password1234');
@@ -34,6 +30,7 @@ if (!$result) {
 <html>
 
 <body>
+  <h1>アーキテクチャなし</h1>
   <p>id: <?= $id ?></p>
   <p>名前: <?= $result["name"] ?></p>
 </body>
