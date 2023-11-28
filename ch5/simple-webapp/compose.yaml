@@ -1,20 +1,24 @@
 version: '3'
 services:
+  db:
+    build:
+      context: db
+    container_name: db
+    volumes:
+      - ./db/conf/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./db/script/init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password1234
+    healthcheck:
+        test: mysqladmin ping -h 127.0.0.1 -uroot -p$MYSQL_ROOT_PASSWORD
   web:
     build:
       context: web
     container_name: web
     volumes:
       - ./web/work/:/var/www/html
-    working_dir: /var/www/html
-    tty: true
-    stdin_open: true
     ports:
       - 8080:80
     depends_on:
-      - db
-  db:
-    build:
-      context: db
-    container_name: db
-    working_dir: /root
+      db:
+        condition: service_healthy

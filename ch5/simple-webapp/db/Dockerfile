@@ -1,6 +1,3 @@
 FROM mysql:8
 
-ENV MYSQL_ROOT_PASSWORD=password1234
-ENV MYSQL_DATABASE=simpleweb
-
-ADD build /
+WORKDIR /root
