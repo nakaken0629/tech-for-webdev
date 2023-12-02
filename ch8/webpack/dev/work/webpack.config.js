@@ -16,12 +16,16 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
-  ],
+  ], 
   module: {
     rules: [
       {
-        test: /\.(sass|scss|css)$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader",],
+        test: /\.scss$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "sass-loader",
+        ], 
       },
     ],
   },
