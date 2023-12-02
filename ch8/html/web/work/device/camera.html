@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>カメラ</title>
+    <script src="camera.js"></script>
 </head>
 
 <body>
@@ -11,19 +12,4 @@
     <br>
     <button id="start_btn">カメラを起動する</button>
 </body>
-<script>
-    if (typeof navigator.mediaDevices.getUserMedia !== 'function') {
-        const err = new Error('カメラが使えません');
-        alert(`${err.name} ${err.message}`);
-        throw err;
-    }
-    const $start = document.getElementById('start_btn');
-    const $video = document.getElementById('video_area');
-    $start.addEventListener('click', () => {
-        navigator.mediaDevices.getUserMedia({ video: true, audio: false })
-        .then(stream => $video.srcObject = stream)
-        .catch(err => alert(`${err.name} ${err.message}`));
-    }, false);
-</script>
-
 </html>
