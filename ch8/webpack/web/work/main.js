@@ -1,0 +1,1 @@
+(()=>{"use strict";document.getElementById("add_button").onclick=()=>{var e=document.createElement("li"),t=document.createTextNode("新しい山");e.appendChild(t),document.getElementById("article").appendChild(e)}})();
