@@ -1,0 +1,12 @@
+{
+    "name": "root/root",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Root\\Root\\": "src/"
+        }
+    },
+    "require": {
+        "rmccue/requests": "^2.0"
+    }
+}
