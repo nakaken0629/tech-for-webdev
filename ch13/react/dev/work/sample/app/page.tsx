@@ -1,6 +1,5 @@
 "use client"
 
-// import styles from './page.module.css'
 import ProductItem from './productItem';
 import { useState } from 'react';
 
