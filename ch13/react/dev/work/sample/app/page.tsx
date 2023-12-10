@@ -16,7 +16,7 @@ export default function Home() {
       </p>
       {items.map((item : any) => {
         return (
-          <ProductItem name={item.name} price={item.price} photo={item.photo} />
+          <ProductItem key={item.id} name={item.name} price={item.price} photo={item.photo} />
         )
       })}
     </>
