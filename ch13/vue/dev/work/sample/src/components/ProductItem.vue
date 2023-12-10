@@ -3,7 +3,7 @@
     <h3>{{ props.name }}</h3>
     <hr>
     <p>値段：¥{{ props.price }}</p>
-    <p><img class="photo" :src="require('@/assets/' + props.photo)" /></p>
+    <p><img class="photo" :src="'/image/' + props.photo" /></p>
   </div>
 </template>
 
