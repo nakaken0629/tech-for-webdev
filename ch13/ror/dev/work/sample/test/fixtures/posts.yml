@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  posted_at: 2023-12-11 17:45:06
+  posted_at: 2023-12-12 10:28:37
   article: MyString
 
 two:
-  posted_at: 2023-12-11 17:45:06
+  posted_at: 2023-12-12 10:28:37
   article: MyString
