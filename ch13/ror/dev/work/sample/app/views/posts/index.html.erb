@@ -1,0 +1,20 @@
+    <header>
+        <h1>シンプルなWebアプリケーション</h1>
+    </header>
+    <main>
+        <%= form_with model: Post.new, data: { turbo: false } do |form| %>
+        <%= form.text_area :article, size: "50x3", placeholder: "入力してください" %>
+        <%= form.submit "ポストする" %>
+        <% end %>
+        <div>
+            <!-- 先頭で取得した投稿の一覧を表示する -->
+            <% @posts.each do |user| %>
+                <hr>
+                <p><%= user.posted_at.strftime('%Y/%m/%d %H:%M:%S') %></p>
+                <p><%= user.article %></p>
+            <% end %>
+        </div>
+    </main>
+    <footer>
+        <p>simple web application</p>
+    </footer>
