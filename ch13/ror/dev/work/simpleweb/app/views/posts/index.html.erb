@@ -8,10 +8,10 @@
     <% end %>
     <div>
         <!-- 先頭で取得した投稿の一覧を表示する -->
-        <% @posts.each do |user| %>
+        <% @posts.each do |post| %>
             <hr>
-            <p><%= user.posted_at.strftime('%Y/%m/%d %H:%M:%S') %></p>
-            <p><%= user.article %></p>
+            <p><%= post.posted_at.strftime('%Y/%m/%d %H:%M:%S') %></p>
+            <p><%= post.article %></p>
         <% end %>
     </div>
 </main>
