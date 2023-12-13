@@ -7,8 +7,6 @@ services:
     volumes:
       - ./db/conf/my.cnf:/etc/mysql/conf.d/my.cnf
       - ./db/script/init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
-    environment:
-      - MYSQL_ROOT_PASSWORD=password1234
     healthcheck:
         test: mysqladmin ping -h 127.0.0.1 -uroot -p$MYSQL_ROOT_PASSWORD
   dev:
