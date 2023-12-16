@@ -1,5 +1,5 @@
 # app.cfgとして複製してください
-USER=user1
-PASSWORD=password1234
-DATABASE=simpleweb
-HOST=db
+USER="user1"
+PASSWORD="password1234"
+DATABASE="simpleweb"
+HOST="db"

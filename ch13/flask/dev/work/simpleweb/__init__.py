@@ -11,6 +11,7 @@ db.init_app(app)
 @app.route("/", methods=['GET', 'POST'])
 def posts():
     if request.method == 'POST':
+        # フォームからデータが送信された時は登録処理を行う
         insert_sql = "insert into post (posted_at, article) values (%s, %s)"
         insert_data = [
             datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
