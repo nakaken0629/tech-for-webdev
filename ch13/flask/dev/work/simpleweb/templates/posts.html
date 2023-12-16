@@ -1,1 +1,34 @@
-<p>hellow world</p>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- スタイルシートを定義する（https://simplecss.org/） -->
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <header>
+        <h1>シンプルなWebアプリケーション</h1>
+    </header>
+    <main>
+        <form action="." method="post">
+            <p><textarea name="article" rows=3 cols=50 placeholder="入力してください"></textarea></p>
+            <p><input type="submit" name="post" value="ポストする"></p>
+        </form>
+        <div>
+            <!-- 先頭で取得した投稿の一覧を表示する -->
+            {% for post in posts %}
+                <hr>
+                <p>{{ post.posted_at }}</p>
+                <p>{{ post.article }}</p>
+            {% endfor %}
+        </div>
+    </main>
+    <footer>
+        <p>simple web application</p>
+    </footer>
+</body>
+
+</html>
