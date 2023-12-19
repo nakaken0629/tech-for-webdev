@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  header
+    h1 シンプルなWebアプリケーション
+  main
+    form(action="." method="post")
+      p
+        textarea(name="article" rows=3 cols=50 placeholder="入力してください")
+      p
+        input(name="post" type="submit" value="ポストする")
+      div
+        each post in posts
+          hr
+          p #{post.posted_at}
+          p #{post.article}
+  footer
+      p simple web application
