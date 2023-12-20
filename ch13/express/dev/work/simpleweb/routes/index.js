@@ -10,7 +10,6 @@ const readPosts = async(connection) => {
   return posts;
 }
 
-/* GET home page. */
 router.get('/', async (req, res, next) => {
   const connection = await createConnection();
   const posts = await readPosts(connection);
@@ -18,7 +17,6 @@ router.get('/', async (req, res, next) => {
   res.render('index', { posts: posts });
 });
 
-/* GET home page. */
 router.post('/', async (req, res, next) => {
   const connection = await createConnection();
   article = req.body.article;
