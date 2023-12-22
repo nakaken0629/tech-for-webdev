@@ -11,13 +11,13 @@ final class TaxTest extends TestCase
         $this->assertEquals(1000, $tax->calc_tax(1000, True, False, False));
     }
 
-    public function test_軽減税理対象商品を持ち帰った時は8パーセントの税込金額を返す(): void
+    public function test_軽減税率対象商品を持ち帰った時は8パーセントの税込金額を返す(): void
     {
         $tax = new Tax;
         $this->assertEquals(1080, $tax->calc_tax(1000, False, True, True));
     }   
 
-    public function test_軽減税理対象商品を店内で飲食した時は10パーセントの税込金額を返す(): void
+    public function test_軽減税率対象商品を店内で飲食した時は10パーセントの税込金額を返す(): void
     {
         $tax = new Tax;
         $this->assertEquals(1100, $tax->calc_tax(1000, False, True, False));
