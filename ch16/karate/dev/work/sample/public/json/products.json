@@ -1,0 +1,20 @@
+[
+    {
+        "id": 0,
+        "name": "おしゃれなカバン",
+        "price": 32000,
+        "photo": "bag.jpg"
+    },
+    {
+        "id": 1,
+        "name": "かわいい洋服",
+        "price": 18000,
+        "photo": "clothes.jpg"
+    },
+    {
+        "id": 2,
+        "name": "キレイなスカーフ",
+        "price": 3800,
+        "photo": "scarf.jpg"
+    }
+]

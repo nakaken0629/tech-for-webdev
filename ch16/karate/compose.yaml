@@ -1,0 +1,24 @@
+version: '3'
+services:
+  dev:
+    build:
+      context: dev
+    container_name: dev
+    volumes:
+      - ./dev/work/:/root/
+    working_dir: /root/
+    tty: true
+    stdin_open: true
+    ports:
+      - 8080:8080
+  tester:
+    build:
+      context: tester
+    depends_on:
+      - dev
+    container_name: tester
+    volumes:
+      - ./tester/work/:/root/
+    working_dir: /root/
+    tty: true
+    stdin_open: true
