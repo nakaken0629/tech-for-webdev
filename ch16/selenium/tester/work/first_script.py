@@ -1,18 +1,15 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 import os
 
 CURRENT_DIR_PATH = os.path.dirname(os.path.abspath(__file__))
 
-options = webdriver.ChromeOptions()
-capabilities = options.to_capabilities()
-capabilities["acceptInsecureCerts"] = True
+options = webdriver.FirefoxOptions()
 # 画面を表示しないので、ヘッドレスオプションを付ける
 options.add_argument('--headless')
 options.add_argument('--window-size=1280,1024')
 
 with webdriver.Remote(
-    command_executor='http://hub:4444/wd/hub',
+    command_executor='http://driver-firefox:4444',
     options=options,
 ) as driver:
     driver.get("http://dev:8080/")

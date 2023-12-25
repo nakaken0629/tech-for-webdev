@@ -15,7 +15,7 @@ services:
     build:
       context: tester
     depends_on:
-      - hub
+      - driver-firefox
       - dev
     container_name: tester
     volumes:
@@ -24,26 +24,13 @@ services:
     command: /bin/bash
     tty: true
     stdin_open: true
-  hub:
-    image: selenium/hub
-    ports:
-      - "4442:4442"
-      - "4443:4443"
-      - "4444:4444"
-    environment:
-      GRID_MAX_SESSION: 16
-      GRID_BROWSER_TIMEOUT: 3000
-      GRID_TIMEOUT: 3000
-  driver-chrome:
-    image: selenium/node-chrome
+  driver-firefox:
+    image: selenium/standalone-firefox:4.16.1-20231219
     build:
       shm_size: "2gb"
-    environment:
-      - SE_EVENT_BUS_HOST=hub
-      - SE_EVENT_BUS_PUBLISH_PORT=4442
-      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - START_XVFB=false
-    depends_on:
-      - hub
-    container_name: driver-chrome
+    container_name: driver-firefox
     working_dir: /root/
+    environment:
+      - dSTART_XVFB=false 
+    ports:
+      - 4444:4444
