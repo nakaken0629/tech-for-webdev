@@ -30,7 +30,5 @@ services:
       shm_size: "2gb"
     container_name: driver-firefox
     working_dir: /root/
-    environment:
-      - dSTART_XVFB=false 
     ports:
       - 4444:4444

@@ -28,4 +28,5 @@ with webdriver.Remote(
         os.path.join(CURRENT_DIR_PATH, "evidences", "2.png"))
     products = driver.find_element(By.ID, "products")
     assert 3 == len(products.find_elements(By.TAG_NAME, "div"))
-Ï
+
+    print("SUCCESS")
