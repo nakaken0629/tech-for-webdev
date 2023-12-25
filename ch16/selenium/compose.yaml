@@ -15,7 +15,7 @@ services:
     build:
       context: tester
     depends_on:
-      - driver-firefox
+      - grid-firefox
       - dev
     container_name: tester
     volumes:
@@ -24,11 +24,11 @@ services:
     command: /bin/bash
     tty: true
     stdin_open: true
-  driver-firefox:
+  grid-firefox:
     image: selenium/standalone-firefox:4.16.1-20231219
     build:
       shm_size: "2gb"
-    container_name: driver-firefox
+    container_name: grid-firefox
     working_dir: /root/
     ports:
       - 4444:4444

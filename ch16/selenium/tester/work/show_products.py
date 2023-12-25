@@ -12,7 +12,7 @@ options.add_argument('--headless')
 options.add_argument('--window-size=1280,1024')
 
 with webdriver.Remote(
-    command_executor='http://driver-firefox:4444',
+    command_executor='http://grid-firefox:4444',
     options=options,
 ) as driver:
     # 画面を開く
