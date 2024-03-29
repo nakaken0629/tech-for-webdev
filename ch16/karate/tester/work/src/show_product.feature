@@ -1,4 +1,4 @@
-Feature: sample karate test script
+Feature: 商品検索を行う
 
 Background:
   * url 'http://dev:8080'
